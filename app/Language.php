@@ -21,9 +21,4 @@ class Language extends Model
         'state',
     ];
 
-    public function profsesional()//singular minusculas
-    {
-        return $this->belongsTo('App\Professional');//ruta y nombre de los modelos
-    }
-
 }

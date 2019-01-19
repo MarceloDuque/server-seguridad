@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
-class User extends Model implements AuthenticatableContract, AuthorizableContract
+class Account extends Model implements AuthenticatableContract, AuthorizableContract
 {
     use Authenticatable, Authorizable;
 
@@ -18,7 +18,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [ // campos del modelo aceptas para se utilize los parámetros en BD
-        'name', 'user_name', 'email', 'api_token', 'password', 'avatar', 'state',
+        'user_name', 'email', 'alternative_email', 'password'
     ];
 
     /**
@@ -27,7 +27,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $hidden = [ //al momento de realizar una consulta el campo password no se visualiza
-        'password','name',
+        'password'
     ];
 
 }

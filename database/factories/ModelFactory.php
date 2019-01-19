@@ -21,14 +21,6 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'api_token' => str_random(60)];
 });
 
-// Role
-$factory->define(App\Role::class, function (Faker\Generator $faker) {
-    return [
-        'description' => $faker->text(rand(32, 10)),
-        'role' => '1',
-        'state' => 'ACTIVE',
-    ];
-});
 
 // Professional
 $factory->define(App\Professional::class, function (Faker\Generator $faker) {
@@ -50,16 +42,64 @@ $factory->define(App\Professional::class, function (Faker\Generator $faker) {
     ];
 });
 
-// Language
-$factory->define(App\Language::class, function (Faker\Generator $faker) {
+//Account
+$factory->define(App\Account::class, function (Faker\Generator $faker) {
     return [
-        'description' => str_random(10),
-        'written_level' => str_random(10),
-        'spoken_level' => str_random(10),
-        'reading_level' => $faker->unique()->safeEmail,
-        'state' => str_random(10),
-        'professional_id' => function () {
-            return factory(App\Professional::class)->create()->id;
+        'user_name' => str_random(10),
+        'email' => $faker->unique()->safeEmail,
+        'alternative_email' => str_random(10),
+        'password' => str_random(10),
+        'user_id' => function () {
+            return factory(App\Account::class)->create()->id;
         }
+    ];
+});
+
+// Role
+$factory->define(App\Role::class, function (Faker\Generator $faker) {
+    return [
+        'id_person' => $faker->text(rand(32, 10)),
+        'user_id' => function () {
+            return factory(App\User::class)->create()->id;
+        }
+    ];
+});
+
+// People
+$factory->define(App\Person::class, function (Faker\Generator $faker) {
+    return [
+        'name' => str_random(10),
+        'person_id' => function () {
+            return factory(App\Person::class)->create()->id;
+        }
+    ];
+});
+
+//System
+$factory->define(App\System::class, function (Faker\Generator $faker) {
+    return [
+        'system_name' => str_random(10),
+        'id_status' => function () {
+            return factory(App\Status::class)->create()->id;
+        }
+    ];
+});
+
+//Status
+
+$factory->define(App\Status::class, function (Faker\Generator $faker) {
+    return [
+        'status_people' => str_random(10),
+        'status_system' => str_random(10),
+
+    ];
+});
+
+//Resource
+
+$factory->define(App\Resource::class, function (Faker\Generator $faker) {
+    return [
+        'url' => str_random(10),
+
     ];
 });

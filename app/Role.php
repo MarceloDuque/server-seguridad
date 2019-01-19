@@ -14,15 +14,9 @@ class Role extends Model
      * @var array
      */
     protected $fillable = [
-        'description',
-        'role',
-        'state',
+        'id-person',
+        'id_status',
+        'rol_name',
     ];
 
-    //campos modelo sin id sin foreinng y timestamps
-
-    public function users()//plural
-    {
-        return $this->belongsToMany('App\User')->withTimestamps();
-    }
 }
