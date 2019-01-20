@@ -12,8 +12,9 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    /*
 public function prueba(Request $request){
-    $user = User: where ('name',$request ->parametro)->get();  //request sirve para los crud esta toda la informacion que nos envie el cliente
+    $user = Account: where ('name',$request ->parametro)->get();  //request sirve para los crud esta toda la informacion que nos envie el cliente
                                                                // ENVIO CON LA URL 
     return $user;
 }
@@ -45,7 +46,7 @@ public function prueba(Request $request){
             return response()->json('Error', 500);
         }
     }
-
+*/
     function logout(Request $request)
     {
         $data = $request->json()->all();

@@ -12,23 +12,16 @@ class Resource extends Model implements AuthenticatableContract, AuthorizableCon
 {
     use Authenticatable, Authorizable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [ // campos del modelo aceptas para se utilize los parámetros en BD
         'url'
     ];
 
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
     protected $hidden = [ //al momento de realizar una consulta el campo password no se visualiza
 
     ];
 
-
+    public function roles() //Relacion de Muchos a muchos
+    {
+        return $this->belongsToMany('App\Role'); //Se relacionara de muchos a muchos
+    }
 }

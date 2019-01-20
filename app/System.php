@@ -21,5 +21,13 @@ class System extends Model implements AuthenticatableContract, AuthorizableContr
         'system_name', 'id_status'
     ];
 
+    public function people() //Relacion de Muchos a muchos
+    {
+        return $this->belongsToMany('App\Person'); //Se relacionara de muchos a muchos con la clase person, al crear esto la tabla permisos se creara automaticamente
+    }
 
+    public function states() //Relacion de Muchos a muchos
+    {
+        return $this->hasMany('App\Person'); //Se relacionara de muchos a muchos con la clase person, al crear esto la tabla permisos se creara automaticamente
+    }
 }

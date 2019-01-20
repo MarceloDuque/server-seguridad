@@ -30,4 +30,10 @@ class Account extends Model implements AuthenticatableContract, AuthorizableCont
         'password'
     ];
 
+
+    public function person()
+    {
+        return $this->belongsTo('App\Person');//relación cuenta se relaciona con una persona uno a uno
+    } //el padre tiene hasOne
+
 }

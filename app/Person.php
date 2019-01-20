@@ -21,5 +21,18 @@ class Person extends Model implements AuthenticatableContract, AuthorizableContr
         'name'
     ];
 
+    public function Account()
+    {
+    return $this->hasOne('App\Account');//relación usuario se relaciona con un profesional uno a uno
+    } //el padre tiene hasOne
+
+    public function systems() //Relacion de Muchos a muchos
+    {
+        return $this->belongsToMany('App\State');
     }
 
+    public function roles() //Relacion de Muchos a muchos
+    {
+        return $this->hasMany('App\Role');
+    }
+}

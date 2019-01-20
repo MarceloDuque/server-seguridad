@@ -11,6 +11,7 @@
 |
 */
 
+/*
 // User
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
@@ -41,7 +42,7 @@ $factory->define(App\Professional::class, function (Faker\Generator $faker) {
         }
     ];
 });
-
+*/
 //Account
 $factory->define(App\Account::class, function (Faker\Generator $faker) {
     return [
@@ -87,7 +88,7 @@ $factory->define(App\System::class, function (Faker\Generator $faker) {
 
 //Status
 
-$factory->define(App\Status::class, function (Faker\Generator $faker) {
+$factory->define(App\State::class, function (Faker\Generator $faker) {
     return [
         'status_people' => str_random(10),
         'status_system' => str_random(10),
