@@ -19,6 +19,7 @@ class CreateAccountsTable extends Migration
             $table->string('email')->unique();
             $table->string('alternative_email')->unique();
             $table->string('password');
+            $table->string('token');
             $table->timestamps();
         });
     }
