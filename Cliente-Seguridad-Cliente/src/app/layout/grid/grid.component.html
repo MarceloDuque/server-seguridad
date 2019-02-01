@@ -1,0 +1,61 @@
+<div [@routerTransition]>
+  <app-page-header [heading]="'Sistemas'" [icon]="'far fa-browser'"></app-page-header>
+
+  <div class="page-header">
+    <h1>Formulario para la creación de Sistemas</h1>
+    <hr />
+  </div>
+
+  <form class="form-horizontal">
+    <fieldset>
+      <!-- Form Name -->
+      <legend></legend>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Nombre del Sistema</label>
+        <div class="col-md-5">
+          <input
+            id="textinput"
+            name="textinput"
+            type="text"
+            placeholder="Introducir el nombre del Sistema "
+            class="form-control input-md"
+            required=""
+          />
+        </div>
+      </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="textinput">URL</label>
+              <div class="col-md-5">
+                <input
+                  id="textinput"
+                  name="textinput"
+                  type="text"
+                  placeholder="Introducir la Url del Sistema "
+                  class="form-control input-md"
+                  required=""
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="selectbasic">Estado </label>
+                <div class="col-md-4">
+                  <select id="selectbasic" name="selectbasic" class="form-control">
+                    <option value="1">Activo</option>
+                    <option value="2">Inactivo</option>
+                  </select>
+                </div>
+              </div>
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="singlebutton"></label>
+        <div class="col-md-4"><button id="singlebutton" name="singlebutton" class="btn btn-info">Guardar</button></div>
+      </div>
+    </fieldset>
+  </form>
+</div>

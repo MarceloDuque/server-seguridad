@@ -1,0 +1,32 @@
+<div class="login-page" [@routerTransition]>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+<img src="assets/images/logoyavirac.png" width="250px"  />
+            <h1>Sistema de Seguridad</h1>
+            <form role="form">
+                <div class="form-content">
+                    <div class="form-group">
+                        <input type="email" ng-model="name" class="form-control input-underline input-lg" id="" placeholder="Correo Institucional">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
+                    </div>
+
+                        <div class="btn rounded-btn">
+                          <select id="selectbasic" name="selectbasic" class="form-control input-underline input-lg">
+                            <option value="1">--Seleccione Su Rol--</option>
+                            <option value="1">Personal</option>
+                            <option value="2">Administrador</option>
+                            <option value="3">Personal Administrativo</option>
+                            <option value="4">Estudiante</option>
+                          </select>
+                        </div>
+                     
+                </div>
+                <a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()">{{ 'Log in' | translate }}</a>
+                   
+            </form>
+        </div>
+    </div>
+</div>

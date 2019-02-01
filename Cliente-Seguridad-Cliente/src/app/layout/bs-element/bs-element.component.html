@@ -1,0 +1,76 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Cuentas'" [icon]="'fas fa-users'"></app-page-header>
+
+
+    <div class="page-header">
+        <h1>Formulario para la creación de Cuentas</h1>
+        <hr>
+    </div>
+
+    <form class="form-horizontal">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend></legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Email:</label>
+                <div class="col-md-5">
+                    <input id="textinput" name="textinput" type="email" placeholder="Introducir el Correo Asignado " class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Correo Alternativo:</label>
+                <div class="col-md-5">
+                    <input id="textinput" name="textinput" type="email" placeholder="Introducir correo Alternativo" class="form-control input-md" required="">
+
+                </div>
+            </div>
+            
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Nombre de Usuario</label>
+                <div class="col-md-5">
+                    <input id="textinput" name="textinput" type="text" placeholder="Introducir nombre de Usuario" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Password:</label>
+                <div class="col-md-5">
+                    <input id="textinput" name="textinput" type="password" placeholder="Introducir la Contraseña" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="selectbasic">Rol </label>
+                <div class="col-md-4">
+                  <select id="selectbasic" name="selectbasic" class="form-control">
+                    <option value="1">Personal</option>
+                    <option value="2">Administrador</option>
+                    <option value="3">Personal Administrativo</option>
+                    <option value="4">Estudiante</option>
+                  </select>
+                </div>
+              </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="singlebutton"></label>
+                <div class="col-md-4">
+                    <button id="singlebutton" name="singlebutton" class="btn btn-info">Guardar</button>
+                </div>
+            </div>
+
+
+        </fieldset>
+    </form>
+
+</div>

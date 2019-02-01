@@ -1,0 +1,37 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
+    <div class="list-group">
+        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-home"></i>&nbsp;
+            <span>{{'Inicio'}}</span>
+        </a>
+      
+    
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('pages')">
+                <i class="fa fa-bars"></i>&nbsp;
+                <span>{{ 'Menu'}}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'pages'">
+                <ul class="submenu">
+  
+                    <li>
+                        <a [routerLink]="['/bs-element']">
+                            <i class="fa fa-user"></i>&nbsp;
+                            <span>{{'Cuentas de Usuario'}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a  [routerLink]="['/grid']">
+                            <i class="fa fa-briefcase"></i>&nbsp;
+                            <span>{{'Sistemas'}}</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+        </div>
+       
+
+    </div>
+ 
+</nav>
