@@ -42,11 +42,9 @@ use Carbon\Carbon;
     $router->put('/companies', ['uses' => 'CompanyController@updateCompany']);
     $router->delete('/companies', ['uses' => 'CompanyController@deleteCompany']);
     /******************************************************************************************************************/
-   // });
+    });
 
-
-
-    /* Rutas publicas special*/
+    /* Rutas publicas*/
 
     /* Rutas para login y logout*/
     $router->post('/login', ['uses' => 'UserController@login']);

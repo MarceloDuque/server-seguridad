@@ -150,7 +150,7 @@ class UserController extends Controller
                 'api_token' => str_random(60),
             ]);
             $user->roles()->attach(1);
-            /*
+           /*
             $user->professional()->create([
                 'identity' => $dataUser ['identity'],
                 'first_name' => strtoupper($dataProfessional ['first_name']),

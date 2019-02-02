@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Professional;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -150,20 +149,7 @@ class UserController extends Controller
                 'api_token' => str_random(60),
             ]);
             $user->roles()->attach(1);
-            /*
-            $user->professional()->create([
-                'identity' => $dataUser ['identity'],
-                'first_name' => strtoupper($dataProfessional ['first_name']),
-                'last_name' => strtoupper($dataProfessional ['last_name']),
-                'email' => strtolower($dataProfessional ['email']),
-                'nationality' => strtoupper($dataProfessional ['nationality']),
-                'civil_state' => strtoupper($dataProfessional ['civil_state']),
-                'birthdate' => $dataProfessional ['birthdate'],
-                'gender' => strtoupper($dataProfessional ['gender']),
-                'phone' => $dataProfessional ['phone'],
-                'address' => strtoupper($dataProfessional ['address']),
-            ]);
-            */
+
             DB::commit();
             return $this->login($request);
         } catch (ModelNotFoundException $e) {

@@ -26,6 +26,7 @@ class CreateProfessionalsTable extends Migration
             $table->string('gender');
             $table->string('phone');
             $table->string('address');
+            $table->string('about_me')->nullable();
             $table->string('state')->default('ACTIVE');
             $table->timestamps();
         });

@@ -57,7 +57,7 @@ para crear carpeta vendor
 comando para emigrar tabla en ingles y en plural
 php artisan migrates:fresh --seed // para hacer pruebas cuando se trabaja en desarrollo y el codigo 
 
-php artisan migrate:fresh // se borra todas las tablas
+php artisan migrates:fresh // se borra todas las tablas
 
 php artisan migrate /actualizar las creadas
 con el --seed lleno las tablas 

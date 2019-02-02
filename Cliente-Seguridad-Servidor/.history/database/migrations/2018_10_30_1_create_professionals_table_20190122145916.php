@@ -21,11 +21,13 @@ class CreateProfessionalsTable extends Migration
             $table->string('email');
             $table->string('first_name');
             $table->string('last_name');
+            $table->string('nationality');
             $table->string('civil_state');
             $table->date('birthdate');
             $table->string('gender');
             $table->string('phone');
             $table->string('address');
+            $table->string('about_me')->nullable();
             $table->string('state')->default('ACTIVE');
             $table->timestamps();
         });

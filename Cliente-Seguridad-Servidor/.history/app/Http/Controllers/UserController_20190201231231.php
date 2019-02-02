@@ -140,7 +140,7 @@ class UserController extends Controller
         try {
             $data = $request->json()->all();
             $dataUser = $data['user'];
-            //$dataProfessional = $data['professional'];
+            $dataProfessional = $data['professional'];
             DB::beginTransaction();
             $user = User::create([
                 'name' => strtoupper($dataUser['name']),
@@ -150,7 +150,7 @@ class UserController extends Controller
                 'api_token' => str_random(60),
             ]);
             $user->roles()->attach(1);
-            /*
+            
             $user->professional()->create([
                 'identity' => $dataUser ['identity'],
                 'first_name' => strtoupper($dataProfessional ['first_name']),
@@ -163,7 +163,7 @@ class UserController extends Controller
                 'phone' => $dataProfessional ['phone'],
                 'address' => strtoupper($dataProfessional ['address']),
             ]);
-            */
+            
             DB::commit();
             return $this->login($request);
         } catch (ModelNotFoundException $e) {

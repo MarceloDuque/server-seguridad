@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Professional;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -21,7 +20,7 @@ class UserController extends Controller
                 ->orWhere('email', $dataUser['user_name'])
                 ->join("role_user", "role_user.user_id", "=", "users.id")
                 ->join("roles", "roles.id", "=", "role_user.role_id")
-                ->select('users.id', 'users.name', 'users.user_name', 'users.email', 'users.password', 'users.api_token',
+                ->select('users.id', 'users.name', 'users.avatar', 'users.user_name', 'users.email', 'users.password', 'users.api_token',
                     'roles.role')
                 ->first();
             if ($user && Hash::check($dataUser['password'], $user->password)) {
@@ -140,7 +139,7 @@ class UserController extends Controller
         try {
             $data = $request->json()->all();
             $dataUser = $data['user'];
-            //$dataProfessional = $data['professional'];
+            $dataProfessional = $data['professional'];
             DB::beginTransaction();
             $user = User::create([
                 'name' => strtoupper($dataUser['name']),
@@ -152,18 +151,18 @@ class UserController extends Controller
             $user->roles()->attach(1);
             /*
             $user->professional()->create([
-                'identity' => $dataUser ['identity'],
-                'first_name' => strtoupper($dataProfessional ['first_name']),
-                'last_name' => strtoupper($dataProfessional ['last_name']),
-                'email' => strtolower($dataProfessional ['email']),
-                'nationality' => strtoupper($dataProfessional ['nationality']),
-                'civil_state' => strtoupper($dataProfessional ['civil_state']),
-                'birthdate' => $dataProfessional ['birthdate'],
-                'gender' => strtoupper($dataProfessional ['gender']),
-                'phone' => $dataProfessional ['phone'],
-                'address' => strtoupper($dataProfessional ['address']),
-            ]);
-            */
+                'identity' => $dataProfessional['identity'],
+                'first_name' => strtoupper($dataProfessional['first_name']),
+                'last_name' => strtoupper($dataProfessional['last_name']),
+                'email' => strtolower($dataProfessional['email']),
+                'nationality' => strtoupper($dataProfessional['nationality']),
+                'civil_state' => strtoupper($dataProfessional['civil_state']),
+                'birthdate' => $dataProfessional['birthdate'],
+                'gender' => strtoupper($dataProfessional['gender']),
+                'phone' => $dataProfessional['phone'],
+                'address' => strtoupper($dataProfessional['address']),
+                'about_me' => strtoupper($dataProfessional['about_me']),
+            ]);*/
             DB::commit();
             return $this->login($request);
         } catch (ModelNotFoundException $e) {

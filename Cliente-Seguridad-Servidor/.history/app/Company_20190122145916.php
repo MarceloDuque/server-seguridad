@@ -26,6 +26,11 @@ class Company extends Model
         'state',
     ];
 
+    public function offers()
+    {
+        return $this->hasMany('App\Offer');
+    }
+
     public function professionals()
     {
         return $this->belongsToMany('App\Professional')->withTimestamps();

@@ -55,9 +55,15 @@ class ProfessionalController extends Controller
     {
         $professionals = Professional::with('academicFormations')
             ->where('professionals.state', 'ACTIVE')
+//            ->where('academic_formations.state', 'ACTIVE')
             ->orderby('professionals.' . $request->field, $request->order)
             ->paginate($request->limit);
 
+//        $professionals = Professional::where('professionals.state', 'ACTIVE')
+//            ->where('academic_formations.state', 'ACTIVE')
+//            ->join('academic_formations', 'academic_formations.professional_id', '=', 'academic_formations.id')
+//            ->orderby('professionals.' . $request->field, $request->order)
+//            ->paginate($request->limit);
         return response()->json([
             'pagination' => [
                 'total' => $professionals->total(),
@@ -112,6 +118,7 @@ class ProfessionalController extends Controller
                 'gender' => strtoupper($dataProfessional['gender']),
                 'phone' => $dataProfessional['phone'],
                 'address' => strtoupper($dataProfessional['address']),
+                'about_me' => strtoupper($dataProfessional['about_me']),
             ]);
             return response()->json($professional, 201);
         } catch (ModelNotFoundException $e) {
@@ -143,7 +150,40 @@ class ProfessionalController extends Controller
         }
     }
 
-    
+    function validateAppliedPostulant(Request $request)
+    {
+        try {
+            $company = Company::where('user_id', $request->user_id)->first();
+            if ($company) {
+                $appliedOffer = DB::table('company_professional')
+                    ->where('professional_id', $request->professional_id)
+                    ->where('company_id', $company->id)
+                    ->where('state', 'ACTIVE')
+                    ->first();
+                if ($appliedOffer) {
+                    return response()->json(true, 200);
+                } else {
+                    return response()->json(false, 200);
+                }
+            } else {
+                return response()->json(null, 404);
+            }
+
+        } catch (ModelNotFoundException $e) {
+            return response()->json($e, 405);
+        } catch (NotFoundHttpException  $e) {
+            return response()->json($e, 405);
+        } catch (QueryException $e) {
+            return response()->json($e, 409);
+        } catch (\PDOException $e) {
+            return response()->json($e, 409);
+        } catch (Exception $e) {
+            return response()->json($e, 500);
+        } catch (Error $e) {
+            return response()->json($e, 500);
+        }
+    }
+
     function detachCompany(Request $request)
     {
         try {

@@ -3,8 +3,8 @@
 use Carbon\Carbon;
 //$router->post('/', ['uses' => 'AbilityController@prueba']);
 /* Rutas con autenticacion*/
-//$router->group(['middleware' => []], function () use ($router) 
-//{
+$router->group(['middleware' => []], function () use ($router) 
+{
     /* Rutas para los usuarios*/
 
     $router->get('/users', ['uses' => 'UserController@getAllUsers']);
@@ -42,11 +42,9 @@ use Carbon\Carbon;
     $router->put('/companies', ['uses' => 'CompanyController@updateCompany']);
     $router->delete('/companies', ['uses' => 'CompanyController@deleteCompany']);
     /******************************************************************************************************************/
-   // });
+    });
 
-
-
-    /* Rutas publicas special*/
+    /* Rutas publicas*/
 
     /* Rutas para login y logout*/
     $router->post('/login', ['uses' => 'UserController@login']);
@@ -80,3 +78,4 @@ use Carbon\Carbon;
 
 
 
+}

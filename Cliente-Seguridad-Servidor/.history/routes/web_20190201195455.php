@@ -3,8 +3,7 @@
 use Carbon\Carbon;
 //$router->post('/', ['uses' => 'AbilityController@prueba']);
 /* Rutas con autenticacion*/
-//$router->group(['middleware' => []], function () use ($router) 
-//{
+$router->group(['middleware' => []], function () use ($router) {
     /* Rutas para los usuarios*/
 
     $router->get('/users', ['uses' => 'UserController@getAllUsers']);
@@ -42,41 +41,36 @@ use Carbon\Carbon;
     $router->put('/companies', ['uses' => 'CompanyController@updateCompany']);
     $router->delete('/companies', ['uses' => 'CompanyController@deleteCompany']);
     /******************************************************************************************************************/
-   // });
+});
 
+/* Rutas publicas*/
 
+/* Rutas para login y logout*/
+$router->post('/login', ['uses' => 'UserController@login']);
+$router->post('/logout', ['uses' => 'UserController@logout']);
+/**********************************************************************************************************************/
 
-    /* Rutas publicas special*/
+/* Rutas para registar usuarios (Profesionales y Empresas)*/
+$router->post('/users/createCompanyUser', ['uses' => 'UserController@createCompanyUser']);
+$router->post('/users/createProfessionalUser', ['uses' => 'UserController@createProfessionalUser']);
+/**********************************************************************************************************************/
 
-    /* Rutas para login y logout*/
-    $router->post('/login', ['uses' => 'UserController@login']);
-    $router->post('/logout', ['uses' => 'UserController@logout']);
-    /**********************************************************************************************************************/
+/* Rutas para obtener todos los profesionales y ofertas*/
+$router->get('/postulants', ['uses' => 'ProfessionalController@getProfessionals']);
+$router->post('/companies/detachPostulant', ['uses' => 'CompanyController@detachPostulant']);
 
-    /* Rutas para registar usuarios (Profesionales y Empresas)*/
-    $router->post('/users/createCompanyUser', ['uses' => 'UserController@createCompanyUser']);
-    $router->post('/users/createProfessionalUser', ['uses' => 'UserController@createProfessionalUser']);
-    /**********************************************************************************************************************/
-
-    /* Rutas para obtener todos los profesionales y ofertas*/
-    $router->get('/postulants', ['uses' => 'ProfessionalController@getProfessionals']);
-    $router->post('/companies/detachPostulant', ['uses' => 'CompanyController@detachPostulant']);
-
-    $router->get('/totalCompanies', function () {
+$router->get('/totalCompanies', function () {
     $totalCompanies = \App\Company::where('state', 'ACTIVE')->count();
     return response()->json(['totalCompanies' => $totalCompanies], 200);
-    });
+});
 
-    $router->get('/totalProfessionals', function () {
+$router->get('/totalProfessionals', function () {
     $totalProfessionals = \App\Professional::where('state', 'ACTIVE')->count();
     return response()->json(['totalProfessionals' => $totalProfessionals], 200);
-    });
-    /**********************************************************************************************************************/
+});
+/**********************************************************************************************************************/
 
-    /* Rutas para filtrar a los profesionales y ofertas*/
-    $router->post('/postulants/filter', ['uses' => 'ProfessionalController@filterPostulants']);
-    $router->get('/postulants/filter', ['uses' => 'ProfessionalController@filterPostulantsFields']);
-    /**********************************************************************************************************************/
-
-
-
+/* Rutas para filtrar a los profesionales y ofertas*/
+$router->post('/postulants/filter', ['uses' => 'ProfessionalController@filterPostulants']);
+$router->get('/postulants/filter', ['uses' => 'ProfessionalController@filterPostulantsFields']);
+/**********************************************************************************************************************/
