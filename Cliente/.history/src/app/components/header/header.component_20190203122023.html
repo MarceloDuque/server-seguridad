@@ -1,0 +1,127 @@
+<nav class="navbar navbar-expand-md fixed-top headerSecction navbar-dark">
+  <button
+    class="navbar-toggler"
+    data-toggle="collapse"
+    data-target="collapse_target"
+  >
+    <span class="navbar-toggler-icon text-white"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapse_target">
+    <a
+      [routerLink]="['/postulantes']"
+      [routerLinkActive]="['router-link-active']"
+      class="navbar-brand"
+    >
+      <img src="assets/img/yavirac.png" height="90px" />
+    </a>
+
+    <!--Menu de Mi perfil-->
+    <ul class="navbar-nav mr-auto">
+      <!--Ofertas-->
+      <li class="nav-item pretty-button">
+        <a
+          class="nav-link text-white"
+          [routerLink]="['/empresas']"
+          [routerLinkActive]="['router-link-active']"
+        >
+          <i class="fa fa-home"></i>&nbsp;Inicio
+        </a>
+      </li>
+
+      <!--Postulantes-->
+      <li class="nav-item pretty-button">
+        <a
+          class="nav-link text-white"
+          [routerLink]="['/postulantes']"
+          [routerLinkActive]="['router-link-active']"
+        >
+          <i class="fa fa-fw fa-users"></i>&nbsp;Profesionales
+        </a>
+      </li>
+
+      <!--Iniciar Sesion-->
+      <li
+        class="nav-item dropdown pretty-button"
+        *ngIf="userLogged.role != '1' && userLogged.role != '1'"
+      >
+        <a
+          class="nav-link text-white"
+          [routerLink]="['/login']"
+          [routerLinkActive]="['router-link-active']"
+        >
+          <i class="fa fa-fw fa-sign-in"></i>&nbsp;Iniciar Sesión
+        </a>
+      </li>
+      <!--Registro Empresas-->
+      <li
+        class="nav-item dropdown pretty-button"
+        *ngIf="userLogged.role != '1' && userLogged.role != '1'"
+      >
+        <a
+          class="nav-link text-white"
+          [routerLink]="['/empresa']"
+          [routerLinkActive]="['router-link-active']"
+        >
+          <i class="fa fa-fw fa-building"></i>&nbsp;Registro de Usuarios
+        </a>
+      </li>
+      <!--Registro Postulantes-->
+      <li
+        class="nav-item dropdown pretty-button"
+        *ngIf="userLogged.role != '1' && userLogged.role != '2'"
+      >
+        <a
+          class="nav-link text-white"
+          [routerLink]="['/persona']"
+          [routerLinkActive]="['router-link-active']"
+        >
+          <i class="fa fa-fw fa-users"></i>&nbsp;Registro de Sistemas
+        </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <!--Mi perfil-->
+      <li
+        class="nav-item dropdown "
+        ngbDropdown
+        *ngIf="userLogged.role == '1' || userLogged.role == '2'"
+      >
+        <a
+          href="javascript:void(0)"
+          class="nav-link text-white"
+          ngbDropdownToggle
+        >
+          Mi Perfil
+        </a>
+        <div ngbDropdownMenu>
+          <a
+            *ngIf="userLogged.role == '2'"
+            class="dropdown-item"
+            [routerLink]="['/perfil-empresa']"
+            [routerLinkActive]="['router-link-active']"
+          >
+            <i class="fa fa-fw fa-address-card"></i>&nbsp;Sistemas
+          </a>
+          <div class="dropdown-divider"></div>
+          <a
+            *ngIf="userLogged.role == '1' || userLogged.role == '2'"
+            class="dropdown-item"
+            [routerLink]="['/account']"
+            [routerLinkActive]="['router-link-active']"
+          >
+            <i class="fa fa-fw fa-wrench"></i>&nbsp;Cambiar Clave
+          </a>
+          <a
+            *ngIf="userLogged.role == '2' || userLogged.role == '1'"
+            class="dropdown-item"
+            [routerLink]="['/perfil-empresa']"
+            [routerLinkActive]="['router-link-active']"
+            (click)="logout()"
+          >
+            <i class="fa fa-fw fa-power-off"></i>&nbsp;Cerrar Sesión
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

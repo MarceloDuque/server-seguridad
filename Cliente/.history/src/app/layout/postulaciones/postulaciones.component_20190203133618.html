@@ -1,0 +1,496 @@
+<div class="row">
+  <div class="col-6 col-sm-12">
+    <div class="top-banner-div" style="background-image: url(assets/img/welcome-bg.png);">
+      <h1 class="col-12 text-left titulo" style="color:white; font-size: 70px; font-weight: 700;">MIS POSTULACIONES</h1>
+    </div>
+  </div>
+</div>
+<ngb-tabset>
+  <ngb-tab title="1. Ofertas Aplicadas" id="tab1">
+    <ng-template ngbTabContent>
+      <div class="row mt-2">
+        <div class="col-12">
+          <div class="card m-2" *ngFor="let offer of offers">
+            <div *ngIf="offer != null" class="card-body">
+              <div class="card-title">
+                <!--Grid Ofertas-->
+                <div class="row" style="overflow: auto">
+                  <div class="col-12">
+                    <div class="card mt-1" style="height: 310px">
+                      <div class="card-header">
+                        <div class="row">
+                          <div class="col-8">
+                            <h6>
+                              <a href="javascript:void(0)" class="col-12 text-left"
+                                 (click)="openOfertaLaboral(modalOfertaLaboral,offer,true)">
+                         
+                              </a>
+                            </h6>
+                            <h6 class="text-muted">
+                              <i class="fa fa-map-marker" aria-hidden="true"></i>
+                         
+                            </h6>
+                          </div>
+                          <div class="col-4">
+                            <table class="col-12">
+                              <tbody>
+                              <tr>
+                                <th>
+                                  <i>Inicio Publicación:</i>&nbsp;
+                                </th>
+                                <td class="text-left text-muted">
+                                  <strong>
+                                    <i>
+                      
+                                    </i>
+                                  </strong>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th>
+                                  <i>Fin Publicación:</i>&nbsp;
+                                </th>
+                                <td class="text-left text-muted">
+                                  <strong>
+                                    <i>
+                              
+                                    </i></strong>
+                                </td>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-12">
+                            <h6 class="text-muted" style="overflow: auto;height: 80px">
+                   
+                            </h6>
+                            <button class="btn btn-primary btn-sm pull-right"
+                                    (click)="openOfertaLaboral(modalOfertaLaboral,offer,true)">
+                              <span class="fa fa-info-circle"></span>&nbsp;Más Información
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-footer text-muted">
+                        <div class="input-group">
+                          <h6 class="text-muted text-uppercase">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                
+                          </h6>
+                          <h6 class="text-muted ml-4 text-uppercase">
+                            <i class="fa fa-mobile-phone" aria-hidden="true"></i>
+                      
+                          </h6>
+                          <h6 class="text-muted ml-4">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                
+                          </h6>
+                          <h6 class="text-muted ml-4 text-lowercase">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                   
+                          </h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="2. Empresas Interesadas" id="tab2">
+    <ng-template ngbTabContent>
+      <div class="row mt-2">
+        <div class="col-12">
+          <div class="card m-2" *ngFor="let company of companies">
+            <div *ngIf="company != null" class="card-body">
+              <div class="card-title">
+                <!--Grid Companies-->
+                <div class="row" style="overflow: auto">
+                  <div class="col-12">
+                    <div class="card mt-1" style="height: 310px">
+                      <div class="card-header">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <h6>
+                              <a href="javascript:void(0)" class="col-12 text-left"
+                                 (click)="openCompany(modalCompany,company,true)">
+                            
+                              </a>
+                            </h6>
+                            <h6 class="text-muted">
+                              <i class="fa fa-map-marker" aria-hidden="true"></i>
+               
+                            </h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-12">
+                            <h6 class="text-muted" style="overflow: auto;height: 80px">
+                    
+                            </h6>
+                            <button class="btn btn-primary btn-sm pull-right"
+                                    (click)="openCompany(modalCompany,company,true)">
+                              <span class="fa fa-info-circle"></span>&nbsp;Más Información
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-footer text-muted">
+                        <div class="input-group">
+                          <h6 class="text-muted ml-4 text-uppercase">
+                            <i class="fa fa-mobile-phone" aria-hidden="true"></i>
+                   
+                          </h6>
+                          <h6 class="text-muted ml-4">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                     
+                          </h6>
+                          <h6 class="text-muted ml-4 text-lowercase">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                          
+                          </h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
+<ng-template #modalOfertaLaboral let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">
+
+    </h4>
+ 
+  </div>
+  <div class="modal-body modal-lg">
+    <div class="card">
+      <div class="card-header bg-primary">
+        <h3 class="text-white">Oferta Laboral</h3>
+      </div>
+      <div class="card-body m-1">
+        <div class="row">
+          <div class="col-lg-6">
+            <!-- Codigo !-->
+            <div class="form-group">
+              <label for="editCodigo" class="col-form-label">
+                <b>Código:</b>
+              </label>
+              <label class="form-control text-uppercase" id="editCodigo">
+             
+              </label>
+            </div>
+
+            <!-- Provincia !-->
+            <div class="form-group ">
+              <label for="editProvincia" class="col-form-label">
+                <b>Provincia:</b>
+              </label>
+              <label class="form-control" id="editProvincia">
+         
+              </label>
+            </div>
+
+            <!-- Canton !-->
+            <div class="form-group ">
+              <label for="editCanton" class="col-form-label">
+                <b>Cantón:</b>
+              </label>
+              <label class="form-control" id="editCanton">{{selectedOffer.city}}</label>
+            </div>
+
+            <!-- Inicio Publicacion !-->
+            <div class="form-group datepicker-input">
+              <label for="editInicioPublicacion" class="col-form-label">
+                <b>Inicio Publicación:</b>
+              </label>
+              <div class="form-control">
+
+              </div>
+            </div>
+
+            <!-- Fin Publicacion !-->
+            <div class="form-group datepicker-input">
+              <label for="editFinPublicacion" class="col-form-label">
+                <b>Fin Publicación:</b>
+              </label>
+              <div class="form-control">
+           
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <!-- Contacto !-->
+            <div class="form-group">
+              <label for="editContacto" class="col-form-label">
+                <b>Contacto:</b>
+              </label>
+              <label class="form-control text-uppercase" id="editContacto">
+          
+              </label>
+            </div>
+
+            <!-- Correo Electronico !-->
+            <div class="form-group ">
+              <label for="editCorreoElectronico" class="col-form-label">
+                <b>Correo:</b>
+              </label>
+              <label class="form-control text-lowercase" id="editCorreoElectronico">
+               
+              </label>
+            </div>
+
+            <!-- Telefono Fijo !-->
+            <div class="form-group ">
+              <label for="editTelefonoFijo" class="col-form-label">
+                <b>Teléfono Fijo:</b>
+              </label>
+              <label class="form-control" id="editTelefonoFijo">
+               
+              </label>
+            </div>
+
+            <!-- Telefono Celular !-->
+            <div class="form-group ">
+              <label for="editTelefonoCelular" class="col-form-label">
+                <b>Teléfono Celular:</b>
+              </label>
+              <label class="form-control" id="editTelefonoCelular">
+         
+              </label>
+            </div>
+
+            <!-- Tipo Contrato !-->
+            <div class="form-group ">
+              <label for="editTipoContrato" class="col-form-label">
+                <b>Tipo Contrato:</b>
+              </label>
+              <label class="form-control" id="editTipoContrato">
+          
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="card">
+      <div class="card-header bg-info">
+        <h3 class="text-white">Perfil del Cargo</h3>
+      </div>
+      <div class="card-body  m-1">
+        <!-- Cargo !-->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label for="editCargo" class="col-form-label ">
+                <b>Cargo:</b>
+              </label>
+              <label class="form-control text-uppercase" name="cargo" id="editCargo" style="overflow: auto;">
+             
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- Camp Amplio y Especifico !-->
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group ">
+              <label for="campoAmplio" class="col-form-label">
+                <b>Campo Amplio:</b>
+              </label>
+              <label class="form-control" id="campoAmplio" style="overflow: auto;height: 75px">
+        
+              </label>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group ">
+              <label for="campoEspecifico" class="col-form-label">
+                <b>Campo Específico:</b>
+              </label>
+              <label class="form-control" id="campoEspecifico" style="overflow: auto;height: 75px">
+          
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Jornada !-->
+          <div class="col-3">
+            <div class="form-group ">
+              <label for="jornada" class="col-form-label">
+                <b>Jornada:</b>
+              </label>
+              <label class="form-control" id="jornada">
+             
+              </label>
+            </div>
+          </div>
+          <!-- Numero de Puestos !-->
+          <div class="col-3">
+            <div class="form-group ">
+              <label for="numeroPuestos" class="col-form-label">
+                <b>Puestos:</b>
+              </label>
+              <label class="form-control" id="numeroPuestos">
+           
+              </label>
+            </div>
+          </div>
+          <!-- Remuneracion !-->
+          <div class="col-3">
+            <div class="form-group ">
+              <label for="remuneracion" class="col-form-label">
+                <b>Remuneración:</b>
+              </label>
+              <label class="form-control" id="remuneracion">
+               
+              </label>
+            </div>
+          </div>
+          <!-- Tiempo Experiencia!-->
+          <div class="col-3">
+            <div class="form-group ">
+              <label for="experiencia" class="col-form-label">
+                <b>Tiempo Experiencia:</b>
+              </label>
+              <label class="form-control" id="experiencia">
+              
+              </label>
+            </div>
+          </div>
+          <!-- Horas de Capacitacion !-->
+          <div class="col-6">
+            <div class="form-group ">
+              <label for="horasCapacitacion" class="col-form-label">
+                <b>Horas de Capacitación:</b>
+              </label>
+              <label class="form-control" id="horasCapacitacion">
+           
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <!-- Actividades !-->
+            <div class="form-group ">
+              <label for="actividades" class="col-form-label">
+                <b>Actividades:</b>
+              </label>
+              <label class="form-control text-uppercase" id="actividades" style="overflow: auto;height: 120px">
+         
+              </label>
+            </div>
+            <!-- Informacion Adicional !-->
+            <div class="form-group ">
+              <label for="informacionAdicional" class="col-form-label">
+                <b>Información Adicional:</b>
+              </label>
+              <label class="form-control text-uppercase texto" id="informacionAdicional"
+                     style="overflow: auto;height: 120px">
+    
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</ng-template>
+
+<ng-template #modalCompany let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">
+
+    </h4>
+
+  </div>
+  <div class="modal-body modal-lg">
+    <div class="card">
+      <div class="card-header bg-primary">
+        <h3 class="text-white">Empresa</h3>
+      </div>
+      <div class="card-body m-1">
+        <div class="row">
+          <div class="col-lg-12">
+            <!-- Actividad Comercial!-->
+            <div class="form-group">
+              <label for="editCodigo" class="col-form-label">
+                <b>Actividad Comercial:</b>
+              </label>
+              <label class="form-control text-uppercase" id="editCodigo">
+          
+              </label>
+            </div>
+
+            <!-- Telefono !-->
+            <div class="form-group ">
+              <label for="editProvincia" class="col-form-label">
+                <b>Teléfono:</b>
+              </label>
+              <label class="form-control" id="editProvincia">
+          
+              </label>
+            </div>
+
+            <!-- Celular !-->
+            <div class="form-group ">
+              <label for="editCanton" class="col-form-label">
+                <b>Celular:</b>
+              </label>
+              <label class="form-control" id="editCanton">{{selectedCompany.cell_phone}}</label>
+            </div>
+
+            <!-- Email !-->
+            <div class="form-group ">
+              <label for="editCanton" class="col-form-label">
+                <b>Correo Electrónico:</b>
+              </label>
+              <label class="form-control" id="editCanton"></label>
+            </div>
+
+            <!-- Pagina Web !-->
+            <div class="form-group ">
+              <label for="editCanton" class="col-form-label">
+                <b>Página Web:</b>
+              </label>
+              <label class="form-control" id="editCanton"></label>
+            </div>
+
+            <!-- Direccion !-->
+            <div class="form-group ">
+              <label for="editCanton" class="col-form-label">
+                <b>Dirección:</b>
+              </label>
+              <label class="form-control" id="editCanton"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</ng-template>

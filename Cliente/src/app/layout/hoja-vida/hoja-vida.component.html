@@ -1,0 +1,47 @@
+<div class="top-banner-div" style="background-image: url(assets/img/welcome-bg.png);">
+  <h1 class="col-12 text-left titulo" style="color:white; font-size: 70px; font-weight: 700;">HOJA DE VIDA</h1>
+</div>
+<div class="col-12 mt-2">
+  <ngb-tabset>
+    <ngb-tab title="1. Datos Personales" id="tab1">
+      <ng-template ngbTabContent>
+        <app-datos-personales></app-datos-personales>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="2. Estudios Realizados" id="tab2">
+      <ng-template ngbTabContent>
+        <app-estudios-realizados></app-estudios-realizados>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="3. Capacitación y Cursos" id="tab3">
+      <ng-template ngbTabContent>
+        <app-capacitacion-cursos></app-capacitacion-cursos>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="4. Experiencia Profesional" id="tab4">
+      <ng-template ngbTabContent>
+        <app-experiencia-profesional></app-experiencia-profesional>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="5. Idiomas" id="tab5">
+      <ng-template ngbTabContent>
+        <app-idiomas></app-idiomas>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="6. Fortalezas" id="tab6">
+      <ng-template ngbTabContent>
+        <app-fortalezas></app-fortalezas>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="7. Referencias Profesionales" id="tab7">
+      <ng-template ngbTabContent>
+        <app-referencias-personales></app-referencias-personales>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>
+<!--<div class="col-12 m-2 text-center">-->
+<!--<button class="btn btn-success" type="button" (click)="guardarCambios()">-->
+<!--<span class="fa fa-save"></span>&nbsp;Guardar Cambios-->
+<!--</button>-->
+<!--</div>-->

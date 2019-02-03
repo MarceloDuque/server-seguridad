@@ -1,0 +1,24 @@
+[
+  {
+    provincia: "Pichincha",
+    cantones: [
+      {
+        nombre: "Quito"
+      },
+      {
+        nombre: "Mejía"
+      }
+    ]
+  },
+  {
+    provincia: "Pichincha",
+    cantones: [
+      {
+        nombre: "Quito"
+      },
+      {
+        nombre: "Mejía"
+      }
+    ]
+  }
+]
