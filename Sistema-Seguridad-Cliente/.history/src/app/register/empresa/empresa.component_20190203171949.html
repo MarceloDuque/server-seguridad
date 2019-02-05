@@ -1,0 +1,91 @@
+<div class="top-banner-div" style="background-image: url(assets/img/welcome-bg.png);">
+  <h1 class="col-12 text-left titulo" style="color:white; font-size: 70px; font-weight: 700;">EMPRESA</h1>
+</div>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <form name="companyForm" method="post" #formCtrl="ngForm">
+        <div class="row">
+          <div class="col-lg-6">
+            <!-- Identificacion !-->
+            <div class="form-group">
+              <div class="row">
+
+              </div>
+            </div>
+            <!-- Nombre Comercial !-->
+            <div class="form-group">
+              <label for="nombreComercial" class="col-form-label">
+                <b class="text-danger">*</b> Nombre:
+              </label>
+              <input type="text" class="form-control text-uppercase" name="nombreComercial" id="nombreComercial"
+                     [(ngModel)]="company.trade_name" required>
+            </div>
+
+            <!-- Actividad Economica !-->
+            <div class="form-group">
+              <label for="actividadEconomica" class="col-form-label">
+                <b class="text-danger">*</b> Descripcion:
+              </label>
+              <textarea rows="3" class="form-control text-uppercase" name="actividadEconomica" id="actividadEconomica"
+                        [(ngModel)]="company.comercial_activity" required></textarea>
+            </div>
+          </div>
+          <div class="col-lg-6">
+
+            <!-- Correo Electronico !-->
+
+            <div class="form-group">
+              <label for="correoElectronico" class="col-form-label">
+                <b class="text-danger">*</b> Correo Electrónico Asociado:
+              </label>
+              <div class="input-group">
+                <input type="email" class="form-control text-lowercase" name="correoElectronico" id="correoElectronico"
+                       (keyup)="validarCorreoElectronico(user.email)"
+                       [(ngModel)]="user.email" placeholder="Ej. contacto@midominio.com" required>
+                <i class="fa fa-check btn-success btn-sm" aria-hidden="true"
+                   *ngIf="correoValido"></i>
+                <i class="fa fa-close btn-danger btn-sm" aria-hidden="true"
+                   *ngIf="!correoValido"></i>
+              </div>
+            </div>
+            <!-- Pagina Web !-->
+            <div class="form-group">
+              <label for="paginaWeb" class="col-form-label">
+                Página web:
+              </label>
+              <div class="input-group">
+                <span class="btn-info btn-lg input-group-prepend">www.</span>
+                <input class="form-control text-lowercase" name="paginaWeb" id="paginaWeb"
+                       [(ngModel)]="company.web_page" (keyup)="validarPaginaWeb(company.web_page)"
+                       placeholder="midominio.com">
+                <i class="fa fa-check btn-success btn-sm" aria-hidden="true"
+                   *ngIf="paginaWebValida"></i>
+                <i class="fa fa-close btn-danger btn-sm" aria-hidden="true"
+                   *ngIf="!paginaWebValida"></i>
+              </div>
+            </div>
+            <!-- Dirección -->
+            <div class="form-group">
+              <label for="direccion" class="col-form-label">
+                <b class="text-danger">*</b> Dirección:
+              </label>
+              <textarea rows="3" class="form-control text-uppercase" name="direccion" id="direccion"
+                        placeholder="EJ. PROVINCIA, CANTÓN, CALLE PRINCIPAL, CALLE SECUNDARIA, NÚMERO DE CASA"
+                        [(ngModel)]="company.address" required></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-sm-12">
+            <button type="submit" class="btn btn-primary mr-1" (click)="register()"
+                    [disabled]="formCtrl.form.invalid">
+              Regístrate
+            </button>
+            <h6 class="text-muted"><b class="text-danger">* </b>Todos los campos son obligatorios</h6>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

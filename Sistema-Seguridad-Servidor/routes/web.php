@@ -13,22 +13,11 @@ use Carbon\Carbon;
     $router->put('/users', ['uses' => 'UserController@updateUser']);
     $router->delete('/users', ['uses' => 'UserController@deleteUser']);
     $router->put('/users/password', ['uses' => 'UserController@updatePassword']);
+    $router->put('/users/password/email', ['uses' => 'UserController@sendResetLinkResponse']);
     $router->get('/users/validateUserName/{id}', ['uses' => 'UserController@validateUserName']);
     /**********************************************************************************************************************/
-    /* Rutas para los profesionales*/
-    $router->get('/professionals/abilities', ['uses' => 'ProfessionalController@getAbilities']);
-    $router->get('/professionals/academicFormations', ['uses' => 'ProfessionalController@getAcademicFormations']);
-    $router->get('/professionals/courses', ['uses' => 'ProfessionalController@getCourses']);
-    $router->get('/professionals/languages', ['uses' => 'ProfessionalController@getLanguages']);
-    $router->get('/professionals/professionalExperiences', ['uses' => 'ProfessionalController@getProfessionalExperiences']);
-    $router->get('/professionals/professionalReferences', ['uses' => 'ProfessionalController@getProfessionalReferences']);
 
-    $router->get('/professionals/offers', ['uses' => 'ProfessionalController@getAppliedOffers']);
-    $router->post('/professionals/offers/filter', ['uses' => 'ProfessionalController@filterOffers']);
-    $router->post('/professionals/offers', ['uses' => 'ProfessionalController@createOffer']);
-    $router->get('/professionals/companies', ['uses' => 'ProfessionalController@getAppliedCompanies']);
-
-
+     $router->get('/professionals/companies', ['uses' => 'ProfessionalController@getAppliedCompanies']);
     $router->get('/professionals/{id}', ['uses' => 'ProfessionalController@showProfessional']);
     $router->post('/professionals', ['uses' => 'ProfessionalController@createProfessional']);
     $router->put('/professionals', ['uses' => 'ProfessionalController@updateProfessional']);
@@ -72,11 +61,4 @@ use Carbon\Carbon;
     return response()->json(['totalProfessionals' => $totalProfessionals], 200);
     });
     /**********************************************************************************************************************/
-
-    /* Rutas para filtrar a los profesionales y ofertas*/
-    $router->post('/postulants/filter', ['uses' => 'ProfessionalController@filterPostulants']);
-    $router->get('/postulants/filter', ['uses' => 'ProfessionalController@filterPostulantsFields']);
-    /**********************************************************************************************************************/
-
-
 
